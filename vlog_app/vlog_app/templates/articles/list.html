@@ -3,11 +3,35 @@
 {% block title %}Last articles{% endblock %}
 
 {% block content %}
-   {% if latest_articles_list %}
+    {% if latest_articles_list %}
       {% for article in latest_articles_list %}
          <a href="{% url 'articles:detail' article.id %}">{{article.article_title}}</a>
+        <form action="{% url 'articles:update' article.id %}" method="get" class="form-group">
+            {% csrf_token %}
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="submit">Update article</button>
+                </div>
+            </div>
+        </form>
+        <form action="{% url 'articles:delete' article.id %}" method="post" class="form-group">
+            {% csrf_token %}
+             <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button type="submit">Delete article</button>
+                </div>
+            </div>
+        </form>
+         <hr>
       {% endfor %}
    {% else %}
       Articles is not found
    {% endif %}
+    <form action="{% url 'articles:create'%}" method="get" class="form-group">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button type="submit">Create article</button>
+            </div>
+        </div>
+    </form>
 {% endblock %}
