@@ -1,35 +1,168 @@
 {% extends 'base.html' %}
 
-{% block title %}{{article.article_title}}{% endblock %}
+{% block title %}{{ article.article_title }}{% endblock %}
+
+{% block styles %}
+<style>
+  .comment-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .parent-comment {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+
+  .child-comments {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  .child-comment {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+  }
+
+  .nested-replies {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  .nested-reply {
+    margin-bottom: 10px;
+    border: 1px solid #f5f5f5;
+    padding: 10px;
+  }
+
+  .comment-body {
+    margin-bottom: 5px;
+  }
+
+  .comment-body p {
+    margin: 0;
+  }
+
+  .comment-body strong {
+    font-weight: bold;
+  }
+
+  .comment-body em {
+    color: #888;
+    font-size: 12px;
+  }
+
+  .comment-form {
+    margin-top: 20px;
+  }
+
+  .article-info {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .article-info h2 {
+    margin-top: 0;
+  }
+
+  .article-info strong {
+    font-weight: bold;
+  }
+
+  .article-info em {
+    color: #888;
+    font-size: 12px;
+  }
+
+  /* Center the content */
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .hidden-field {
+    display: none;
+  }
+
+  .return-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .return-button:hover {
+    background-color: #45a049;
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-  <h2>{{article.article_title}}</h2>
-  <p>{{article.article_content}}</p>
-  <em>{{article.pub_date}}</em>
+<div class="content-wrapper">
+  <div>
+    <a href="{% url 'articles:home' %}" class="return-button">Return to Articles List</a>
 
-  {% if article.was_published_recently %}
-    New Article!!!
-  {% endif %}
+    <div class="article-info">
+      <h2>{{ article.article_title }}</h2>
+      <strong>
+        {% if article.was_published_recently %}
+          New Article!!!
+        {% endif %}
+      </strong>
+      <p>{{ article.article_content }}</p>
+      <em>Creation date: {{ article.pub_date }}</em>
+      {% if article.pub_date != article.mod_date %}
+        <em><h4>Last modification has been performed: {{ article.mod_date }}</h4></em>
+      {% endif %}
+    </div>
 
-  <hr>
+    <hr>
+    <h3>Comments</h3>
     {% if latest_comments_list %}
-      {% for comment in latest_comments_list %}
-        <p>
-          <strong>{{comment.author_name}}</strong>
-          <p>{{comment.comment_text}}</p>
-        </p>>
-      {% endfor %}
+      <ul class="comment-list">
+        {% for comment in latest_comments_list %}
+          {% if not comment.parent_comment %}
+            {% with comment=comment comment_class="parent-comment" reply_class="child-comment" nested_replies_class="nested-replies" %}
+              {% include "articles/comment.html" %}
+            {% endwith %}
+          {% endif %}
+        {% endfor %}
+      </ul>
     {% else %}
-      Comments are not found
+      <p>No comments found.</p>
     {% endif %}
-  <hr>
 
-  <form action="{% url 'articles:leave_comment' article.id %}" method="post">
-    {% csrf_token %}
+    <hr>
 
-    <input type="text" required placeholder="Your name" name="name"><br>
-    <textarea name="text" required placeholder="Comment text" cols="30" rows="10"></textarea><br>
+    <form action="{% url 'articles:leave_comment' article.id %}" method="post" class="comment-form">
+      {% csrf_token %}
+      <input type="text" required placeholder="Your name" name="name"><br>
+      <textarea name="text" required placeholder="Comment text" cols="30" rows="10"></textarea><br>
+      <button type="submit">Leave comment</button>
+    </form>
+  </div>
+</div>
 
-    <button type="submit">Leave comment</button>
-  </form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.reply-button').click(function() {
+      var commentForm = $(this).siblings('.comment-form');
+      commentForm.toggleClass('hidden-field');
+      commentForm.find('input, textarea').prop('readonly', false).removeAttr('disabled');
+      $(this).hide();
+    });
+  });
+</script>
 {% endblock %}

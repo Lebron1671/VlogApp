@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import Article
+from . models import Article, Comment
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
 from django.utils import timezone
@@ -13,7 +13,8 @@ def home(request):
 
 def create(request):
     if request.POST:
-        new_article = Article(article_title=request.POST['art_name'], article_content=request.POST['art_content'], pub_date=timezone.now())
+        created_date = timezone.now()
+        new_article = Article(article_title=request.POST['art_name'], article_content=request.POST['art_content'], pub_date=created_date, mod_date=created_date)
         new_article.save()
         return HttpResponseRedirect(reverse('articles:detail', args=(new_article.id,)))
     else:
@@ -25,7 +26,7 @@ def update(request, article_id):
     if request.POST:
         article.article_title = request.POST['art_name']
         article.article_content = request.POST['art_content']
-
+        article.mod_date=timezone.now()
         article.save()
         return HttpResponseRedirect(reverse('articles:detail', args=(article.id,)))
     else:
@@ -58,5 +59,19 @@ def leave_comment(request, article_id):
     except:
         raise Http404("The article is not found")
 
-    article.comment_set.create(author_name=request.POST['name'], comment_text=request.POST['text'])
+    article.comment_set.create(author_name=request.POST['name'], comment_text=request.POST['text'], added_date=timezone.now())
+    return HttpResponseRedirect(reverse('articles:detail', args=(article_id,)))
+
+def reply_to_comment(request, article_id, comment_id):
+    try:
+        article = Article.objects.get(id=article_id)
+    except:
+        raise Http404("The article is not found")
+
+    try:
+        comment = Comment.objects.get(id=comment_id)
+    except:
+        raise Http404("The comment is not found")
+
+    article.comment_set.create(author_name=request.POST['replier_name'], comment_text=request.POST['replier_text'],added_date=timezone.now(), parent_comment=comment)
     return HttpResponseRedirect(reverse('articles:detail', args=(article_id,)))
