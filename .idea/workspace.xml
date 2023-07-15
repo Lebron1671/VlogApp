@@ -5,13 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c89eeba9-977f-45ae-9316-ef023b964dc7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vlog_app/articles/static/articles/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vlog_app/articles/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4aa63432-8d76-4267-aac8-a54784b38857.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4aa63432-8d76-4267-aac8-a54784b38857.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vlog_app/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/migrations/0002_alter_article_options_alter_comment_options_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/migrations/0002_alter_article_options_alter_comment_options_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/migrations/0003_comment_added_date.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/migrations/0003_comment_added_date.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/migrations/0004_comment_parent_comment.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/migrations/0004_comment_parent_comment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/vlog_app/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/templates/articles/comment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/templates/articles/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/templates/articles/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/templates/articles/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/articles/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/articles/templates/articles/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_app/vlog_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_app/vlog_app/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +43,7 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -34,22 +55,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/johnproston/Documents/Projects/vlog_app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/johnproston/Documents/Projects/vlog_app",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vlog_app/articles" />
+      <recent name="$PROJECT_DIR$/vlog_app" />
+      <recent name="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/static" />
+      <recent name="$PROJECT_DIR$/vlog_app/vlog_app/static/articles" />
       <recent name="$PROJECT_DIR$/vlog_app/vlog_app/apps" />
     </key>
   </component>
@@ -93,25 +119,18 @@
       <workItem from="1689242153329" duration="11305000" />
       <workItem from="1689264457345" duration="48000" />
       <workItem from="1689264515120" duration="4000000" />
+      <workItem from="1689268606457" duration="14982000" />
+      <workItem from="1689343367487" duration="611000" />
+      <workItem from="1689405175136" duration="1900000" />
+      <workItem from="1689417284550" duration="4182000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/vlog_app/vlog_app/apps/articles/views.py</url>
-          <line>39</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/vlog_app$views.coverage" NAME="views Coverage Results" MODIFIED="1689264847467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/vlog_app/vlog_app/apps/articles" />
-    <SUITE FILE_PATH="coverage/vlog_app$manage.coverage" NAME="manage Coverage Results" MODIFIED="1689266468500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/vlog_app" />
+    <SUITE FILE_PATH="coverage/vlog_app$manage.coverage" NAME="manage Coverage Results" MODIFIED="1689425679642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/vlog_app" />
   </component>
 </project>

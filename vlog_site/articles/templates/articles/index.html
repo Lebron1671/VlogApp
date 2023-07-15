@@ -1,0 +1,13 @@
+{% extends 'articles/base.html' %}
+
+{% block content %}
+<ul class="list-articles">
+	{% for article in articles %}
+      <li><h2>{{article.article_title}}</h2>
+	{{article.article_content|linebreaks|truncatewords:50}}
+			<div class="clear"></div>
+			<p class="link-read-post"><a href="{% url 'detail' article.id %}">Read article</a></p>
+			</li>
+	{% endfor %}
+</ul>
+{% endblock %}

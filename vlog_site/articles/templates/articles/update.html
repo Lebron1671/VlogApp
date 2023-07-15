@@ -1,0 +1,41 @@
+{% extends 'articles/base.html' %}
+
+{% block title %}Modify Article{% endblock %}
+{% block styles %}
+<style>
+  .return-button {
+    display: block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .return-button:hover {
+    background-color: #45a049;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+   <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+      <div>
+         <a href="{% url 'home' %}" class="return-button">Return to Articles List</a>
+
+         <form action="{% url 'update' article.id %}" method="post">
+            {% csrf_token %}
+            <select name="category">
+               {% for category in categories %}
+                  <option  value="{{ category.category_name }}">{{ category.category_name }}</option>
+               {% endfor %}
+             </select><br>
+            <input type="text" required placeholder="Title name" name="art_name" value="{{ article.article_title }}"><br>
+            <textarea name="art_content" required placeholder="Title text" cols="30" rows="10">{{ article.article_content }}</textarea><br>
+            <button type="submit">Update article</button>
+         </form>
+      </div>
+   </div>
+{% endblock %}
