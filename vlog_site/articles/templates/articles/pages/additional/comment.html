@@ -9,11 +9,11 @@
   <ul class="{{ replies_class }}">
     {% for reply in comment.comment_set.all %}
       {% with comment=reply comment_class=reply_class replies_class=nested_replies_class %}
-        {% include "articles/comment.html" %}
+        {% include "articles/pages/additional/comment.html" %}
       {% endwith %}
     {% endfor %}
   </ul>
-  <form class="comment-form hidden-field" action="{% url 'reply_to_comment' article.id comment.id %}" method="post">
+  <form class="comment-form hidden-field" action="{% url 'reply_to_comment' article.slug comment.id %}" method="post">
     {% csrf_token %}
     <input type="text" required placeholder="Your name" name="replier_name"><br>
     <textarea name="replier_text" required placeholder="Comment text" cols="30" rows="10"></textarea><br>

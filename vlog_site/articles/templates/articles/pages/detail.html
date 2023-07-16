@@ -1,4 +1,4 @@
-{% extends 'articles/base.html' %}
+{% extends 'articles/pages/base.html' %}
 
 {% block title %}{{ article.article_title }}{% endblock %}
 
@@ -91,28 +91,12 @@
   .hidden-field {
     display: none;
   }
-
-  .return-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-  }
-
-  .return-button:hover {
-    background-color: #45a049;
-  }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="content-wrapper">
   <div>
-    <a href="{% url 'home' %}" class="return-button">Return to Articles List</a>
-
     <div class="article-info">
       <h2>{{ article.article_title }}</h2>
       <p>{{ article.article_content }}</p>
@@ -129,7 +113,7 @@
         {% for comment in article_comments_list %}
           {% if not comment.parent_comment %}
             {% with comment=comment comment_class="parent-comment" reply_class="child-comment" nested_replies_class="nested-replies" %}
-              {% include "articles/comment.html" %}
+              {% include "articles/pages/additional/comment.html" %}
             {% endwith %}
           {% endif %}
         {% endfor %}
@@ -140,7 +124,7 @@
 
     <hr>
 
-    <form action="{% url 'leave_comment' article.id %}" method="post" class="comment-form">
+    <form action="{% url 'leave_comment' article.slug %}" method="post" class="comment-form">
       {% csrf_token %}
       <input type="text" required placeholder="Your name" name="name"><br>
       <textarea name="text" required placeholder="Comment text" cols="30" rows="10"></textarea><br>

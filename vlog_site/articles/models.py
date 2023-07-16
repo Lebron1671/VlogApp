@@ -1,13 +1,15 @@
 from django.db import models
-import datetime
-from django.utils import timezone
-
+from django.urls import reverse
 
 class Category(models.Model):
     category_name = models.CharField('category name', max_length=50)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
 
     def __str__(self):
         return self.category_name
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_slug': self.slug})
 
     class Meta:
         verbose_name = 'Category'
@@ -16,6 +18,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True)
     article_title = models.CharField('article name', max_length=200)
     article_content = models.TextField('article content')
     pub_date = models.DateTimeField('publication date', auto_now_add=True)
@@ -24,8 +27,8 @@ class Article(models.Model):
     def __str__(self):
         return self.article_title
 
-    def was_published_recently(self):
-        return self.pub_date >= (timezone.now() - datetime.timedelta(days=7))
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'article_slug': self.slug})
 
     class Meta:
         verbose_name = 'Article'
@@ -40,7 +43,7 @@ class Comment(models.Model):
     added_date = models.DateTimeField("date added", auto_now_add=True)
 
     def __str__(self):
-        return self.author_name
+        return self.comment_text
 
     class Meta:
         verbose_name = 'Comment'
