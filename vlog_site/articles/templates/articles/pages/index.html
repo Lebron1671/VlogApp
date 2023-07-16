@@ -7,6 +7,9 @@
 			<p class="first">Category: {{ article.category }}</p>
 			<p class="last">Last modification: {{ article.mod_date|date:"d-m-Y H:i:s" }}</p>
 		</div>
+		{% if article.photo %}
+			<p><img class="img-article-left thumb" src="{{article.photo.url}}"></p>
+		{% endif %}
 	<li><h2>{{article.article_title}}</h2>
 	{{article.article_content|linebreaks|truncatewords:50}}
 			<div class="clear"></div>

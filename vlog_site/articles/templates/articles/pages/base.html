@@ -7,6 +7,13 @@
     <title>{% block title %}Main Page{% endblock %}</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link type="text/css" href="{% static 'articles/css/styles.css' %}" rel="stylesheet" />
+    <style>
+        .logo {
+            position: absolute;
+            top: 4px;
+            left: 10px;
+        }
+    </style>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" href="{% static 'articles/images/main.ico' %}" type="image/x-icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +25,12 @@
 {% block mainmenu %}
 		<div class="header">
 			<ul id="mainmenu" class="mainmenu">
-			<li class="logo"><a href="#"><div class="logo"></div></a></li>
-				{% show_menu %}
+                <li class="logo">
+                    <a href="{% url 'home' %}">
+                     <img src="{% static 'articles/images/main.ico' %}" alt="Logo">
+                    </a>
+                </li>
+                <li>{% show_menu %}</li>
 			</ul>
 			<div class="clear"></div>
 		</div>

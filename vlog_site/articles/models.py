@@ -21,6 +21,7 @@ class Article(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     article_title = models.CharField('article name', max_length=200)
     article_content = models.TextField('article content')
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", null=True)
     pub_date = models.DateTimeField('publication date', auto_now_add=True)
     mod_date = models.DateTimeField('modification date', auto_now=True)
 

@@ -99,6 +99,9 @@
   <div>
     <div class="article-info">
       <h2>{{ article.article_title }}</h2>
+      {% if article.photo %}
+        <p><img class="img-article-left" src="{{article.photo.url}}"></p>
+      {% endif %}
       <p>{{ article.article_content }}</p>
       <em>Creation date: {{ article.pub_date }}</em>
       {% if article.pub_date != article.mod_date %}
