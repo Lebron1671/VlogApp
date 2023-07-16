@@ -1,20 +1,25 @@
 {% extends 'articles/pages/base.html' %}
 
 {% block content %}
-<ul class="list-articles">
-	{% for article in articles %}
-    	<li><div class="article-panel">
-			<p class="first">Category: {{ article.category }}</p>
-			<p class="last">Last modification: {{ article.mod_date|date:"d-m-Y H:i:s" }}</p>
-		</div>
-		{% if article.photo %}
-			<p><img class="img-article-left thumb" src="{{article.photo.url}}"></p>
-		{% endif %}
-	<li><h2>{{article.article_title}}</h2>
-	{{article.article_content|linebreaks|truncatewords:50}}
-			<div class="clear"></div>
-			<p class="link-read-post"><a href="{{ article.get_absolute_url }}">Read article</a></p>
-			</li>
-	{% endfor %}
-</ul>
+    <ul class="list-articles">
+        {% for article in articles %}
+            <li><div class="article-panel">
+                <p class="first">Category: {{ article.category }}</p>
+                <p class="last">Last modification: {{ article.mod_date|date:"d-m-Y H:i:s" }}</p>
+            </div>
+            {% if article.photo %}
+                <p><img class="img-article-left thumb" src="{{article.photo.url}}"></p>
+            {% endif %}
+            <li>
+                <h2>{{article.article_title}}</h2>
+                {{article.article_content|linebreaks|truncatewords:50}}
+                <div class="clear"></div>
+                <div class="buttons-container">
+                    <p class="link-delete-article"><a href="{% url 'delete' article.slug %}">Delete article</a></p>
+                    <p class="link-edit-article"><a href="{% url 'update' article.slug %}">Edit article</a></p>
+                    <p class="link-read-article"><a href="{{ article.get_absolute_url }}">Read article</a></p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

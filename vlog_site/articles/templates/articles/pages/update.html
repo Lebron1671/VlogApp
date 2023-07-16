@@ -1,22 +1,10 @@
 {% extends 'articles/pages/base.html' %}
-{% load articles_tags %}
-{% block title %}Modify Article{% endblock %}
 
 {% block content %}
-   <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-      <div>
-         <form action="{% url 'update' article.slug %}" method="post">
-            {% csrf_token %}
-            {% get_categories as categories %}
-            <select name="category">
-               {% for category in categories %}
-                  <option  value="{{ category.category_name }}">{{ category.category_name }}</option>
-               {% endfor %}
-             </select><br>
-            <input type="text" required placeholder="Title name" name="art_name" value="{{ article.article_title }}"><br>
-            <textarea name="art_content" required placeholder="Title text" cols="30" rows="10">{{ article.article_content }}</textarea><br>
-            <button type="submit">Update article</button>
-         </form>
-      </div>
-   </div>
-{% endblock %}
+    <h1>Edit article</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+{% endblock content %}

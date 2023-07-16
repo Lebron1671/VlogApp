@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.template.defaultfilters import slugify
-from django.views.generic import ListView, DetailView
-
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from .forms import *
 from . models import *
 from django.utils.text import slugify
@@ -19,11 +18,14 @@ class ArticlesHome(ListView):
         context = super().get_context_data(**kwargs)
         context['category_selected'] = 0
         return context
+
+
 """
 def home(request):
     articles = Article.objects.all()
     return render(request, 'articles/pages/index.html', { 'articles': articles })
 """
+
 
 class ShowArticle(DetailView):
     model = Article
@@ -35,6 +37,7 @@ class ShowArticle(DetailView):
         context = super().get_context_data(**kwargs)
         context['category_selected'] = context['article'].category_id
         return context
+
 
 """
 def detail(request, article_slug):
@@ -51,7 +54,18 @@ def detail(request, article_slug):
 """
 
 
+class CreateArticle(CreateView):
+    form_class = AddArticleForm
+    template_name = 'articles/pages/create.html'
 
+    def form_valid(self, form):
+        slug = cyrillic_slugify(form.cleaned_data['article_title'])
+        form.instance.slug = slug
+
+        return super().form_valid(form)
+
+
+"""
 def create(request):
     if request.POST:
         form = AddArticleForm(request.POST, request.FILES)
@@ -69,8 +83,23 @@ def create(request):
     else:
         form = AddArticleForm()
         return render(request, 'articles/pages/create.html', {'form': form})
+"""
 
 
+class UpdateArticle(UpdateView):
+    model = Article
+    template_name = 'articles/pages/update.html'
+    fields = ['article_title', 'article_content', 'category', 'photo']
+    slug_url_kwarg = 'article_slug'
+    context_object_name = 'article'
+
+    def form_valid(self, form):
+        slug = cyrillic_slugify(form.cleaned_data['article_title'])
+        form.instance.slug = slug
+
+        return super().form_valid(form)
+
+"""
 def update(request, article_slug):
     article = get_object_or_404(Article, slug=article_slug)
     if request.POST:
@@ -85,13 +114,25 @@ def update(request, article_slug):
     else:
 
         return render(request, 'articles/pages/update.html', {'article': article })
+"""
 
 
+
+class DeleteArticle(DeleteView):
+    model = Article
+    template_name = 'articles/pages/delete.html'
+    success_url = reverse_lazy('home')
+    context_object_name = 'article'
+    slug_url_kwarg = 'article_slug'
+
+"""
 def delete(request, article_slug):
     article = get_object_or_404(Article, slug=article_slug)
     article.delete()
 
     return HttpResponseRedirect(reverse('home'))
+"""
+
 
 
 def leave_comment(request, article_slug):
@@ -130,6 +171,7 @@ class ArticlesCategory(ListView):
     def get_queryset(self):
         return Article.objects.filter(category__slug=self.kwargs['category_slug'])
 
+
 """
 def show_category(request, category_slug):
     articles = Article.objects.filter(category__slug=category_slug)
@@ -141,7 +183,6 @@ def show_category(request, category_slug):
 
     return render(request, 'articles/pages/index.html', context=context)
 """
-
 
 
 def cyrillic_slugify(value):
