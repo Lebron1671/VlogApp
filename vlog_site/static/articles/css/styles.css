@@ -38,16 +38,20 @@ p.link-delete-article {
     text-align: right;
 }
 
+p.link-edit-article {
+    text-align: right;
+}
+
 .buttons-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
 }
 
 .buttons-container p {
     margin: 0; /* Убираем стандартные отступы */
 }
 
-
+p.link-edit-article a,
 p.link-delete-article a,
 p.link-read-article a {
     display: inline-block; /* Add this line */
@@ -99,11 +103,11 @@ ul.list-articles li {
 	height: 60px;
 }
 
-.logo {
-	background: url('articles/images/logo.png') no-repeat 10px 5px;
-	width: 70px;
-	height: 60px;
-}
+ .logo {
+	 position: absolute;
+	 top: 4px;
+	 left: 10px;
+ }
 
 ul.mainmenu {
 	list-style: none;
@@ -398,4 +402,41 @@ ul.lang-list li a:hover {color: #fdc073;}
 .form-button {
     min-width: 200px;
     font-size: 16px;
+}
+.list-pages {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+.list-pages ul {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+.list-pages a {
+	color: #000;
+	font-size: 24px;
+	text-decoration: none;
+}
+.list-pages .page-num, .page-num-selected {
+	display: inline-block;
+	width: 60px;
+	height: 44px;
+	padding: 16px 0 0 0;
+	border: 1px solid #d0d0d0;
+	border-radius: 30px;
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0;
+}
+.list-pages .page-num-selected {
+	border: none;
+	color: #000;
+	font-size: 20px;
+}
+.list-pages .page-num-selected:hover {
+	box-shadow: none;
 }

@@ -4,6 +4,9 @@ from . import views
 
 urlpatterns = [
    path('', views.ArticlesHome.as_view(), name='home'),
+   path('register/', views.RegisterUser.as_view(), name='register'),
+   path('login/', views.LoginUser.as_view(), name='login'),
+   path('logout/', views.logout_user, name='logout'),
    path('create/', views.CreateArticle.as_view(), name="create"),
    path('<slug:article_slug>/update/', views.UpdateArticle.as_view(), name="update"),
    path('<slug:article_slug>/', views.ShowArticle.as_view(), name='detail'),

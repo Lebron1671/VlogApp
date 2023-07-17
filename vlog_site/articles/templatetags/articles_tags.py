@@ -21,4 +21,5 @@ def show_categories(sort=None, category_selected=0):
 @register.inclusion_tag('articles/tags/list_menu.html')
 def show_menu():
     menu = ["Add article", "Log in"]
+
     return {'menu': menu}

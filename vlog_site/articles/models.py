@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Category(models.Model):
     category_name = models.CharField('category name', max_length=50)
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
@@ -34,6 +35,7 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'Article'
         verbose_name_plural = 'Articles'
+        ordering = ['id']
 
 
 class Comment(models.Model):

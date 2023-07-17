@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2b6e27b3-d615-4565-9e7f-10206eded7cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/articles/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1651d262-0fcf-4b21-9e25-140701c0bc1b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1651d262-0fcf-4b21-9e25-140701c0bc1b.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/static/articles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/articles/static/articles/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/templates/articles/pages/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/pages/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/templates/articles/pages/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/pages/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/templates/articles/pages/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/pages/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/templates/articles/pages/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templates/articles/pages/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/templatetags/articles_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/templatetags/articles_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/articles/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/articles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/articles/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vlog_site/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/vlog_site/settings.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2SerEVuySrMzbWEhI1e4JyOAAYg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/johnproston/Documents/Projects/vlog_app/vlog_site&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="vlog_site" type="Python.DjangoServer" factoryName="Django server">
+      <module name="vlog_site" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="vlog_site.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2b6e27b3-d615-4565-9e7f-10206eded7cd" name="Changes" comment="" />
+      <created>1689517775449</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689517775449</updated>
+      <workItem from="1689517776536" duration="11137000" />
+      <workItem from="1689571041103" duration="7520000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="django-line">
+          <url>file://$PROJECT_DIR$/articles/templates/articles/pages/base.html</url>
+          <line>6</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/articles/utils.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
