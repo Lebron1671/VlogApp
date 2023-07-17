@@ -2,9 +2,11 @@ from django.db.models import Count
 from django.utils.text import slugify
 from transliterate import translit
 from articles.models import Category, Article
+from django.core.cache import cache
 
 menu = [
-    {'title': "Add article", 'url_name': 'create'},
+    {'title': 'Add article', 'url_name': 'create'},
+    {'title': "Feedback", 'url_name': 'feedback'},
 ]
 
 
@@ -15,7 +17,11 @@ class DataMixin:
 
     def get_user_context(self, **kwargs):
         context = kwargs
-        categories = Category.objects.annotate(Count('article'))
+        categories = cache.get('categories')
+        if not categories:
+            categories = Category.objects.annotate(Count('article'))
+            cache.set('categories', categories, 60)
+
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:
             user_menu.pop(0)

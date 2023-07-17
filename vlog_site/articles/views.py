@@ -4,7 +4,7 @@ from django.contrib.auth.views import LoginView
 from django.shortcuts import get_object_or_404, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, FormView
 from .forms import *
 from .models import *
 from articles.utils import *
@@ -134,6 +134,19 @@ class LoginUser(DataMixin, LoginView):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+class FeedbackFormView(DataMixin, FormView):
+    form_class = FeedbackForm
+    template_name = 'articles/pages/feedback.html'
+    success_url = reverse_lazy('home')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context()
+
+        return dict(list(context.items()) + list(c_def.items()))
+
 
 def leave_comment(request, article_slug):
     article = get_object_or_404(Article, slug=article_slug)
